@@ -1,13 +1,16 @@
 #![allow(unused_imports)]
 
 extern crate rand;
+
 use rand::distributions::{Distribution, Standard};
 use rand::{
     thread_rng,
     Rng
 };
+
+use std::ffi::CString;
 use rand::distributions::Alphanumeric;
-use std::fmt::Debug;
+use libc::c_char;
 
 #[derive(Debug)]
 struct Point {
@@ -49,10 +52,10 @@ pub extern fn generate_number_range_int(
 
 
 #[no_mangle]
-pub extern fn generate_password() {
+pub extern fn generate_password(pass_len: usize) {
    let rand_string: String = thread_rng()
         .sample_iter(&Alphanumeric)
-        .take(30)
+        .take(pass_len)
         .collect();
     
     println!("{}", rand_string);
