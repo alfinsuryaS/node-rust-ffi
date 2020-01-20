@@ -8,6 +8,10 @@ edition = "2018"
 
 [dependencies]
 rand = "0.7.2"
+serde = "1.0.104"
+md5 = "0.7.0"
+rust-crypto = "^0.2"
+libc = "0.2"
 
 [lib]
 name = "embed"
