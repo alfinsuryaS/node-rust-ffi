@@ -43,5 +43,6 @@ $ cargo build --release
 
 ## Test
 ```bash
+$ cd native/
 $ cargo test
 ```
