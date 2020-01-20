@@ -29,12 +29,10 @@ impl Distribution<Point> for Standard {
 }
 
 #[no_mangle]
-pub extern fn generate_point_values(){
+pub extern fn generate_point_values() {
     let mut rng = rand::thread_rng();
     let rand_point:Point = rng.gen();
-    println!("{:#?}", 
-        rand_point,
-    )
+    println!("{:#?}", rand_point,);
 }
 
 
@@ -61,3 +59,11 @@ pub extern fn generate_password(pass_len: usize) {
     println!("{}", rand_string);
 }
 
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn generate_point_values() {
+        assert_eq!(2, 2)
+    }
+}
