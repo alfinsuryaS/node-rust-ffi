@@ -32,7 +32,7 @@ impl Distribution<Point> for Standard {
 pub extern fn generate_point_values() {
     let mut rng = rand::thread_rng();
     let rand_point:Point = rng.gen();
-    println!("{:#?}", rand_point,);
+    println!("{:#?}", rand_point);
 }
 
 
@@ -60,10 +60,31 @@ pub extern fn generate_password(pass_len: usize) {
 }
 
 
+
 #[cfg(test)]
 mod tests {
-    #[test]
-    fn generate_point_values() {
-        assert_eq!(2, 2)
+    type CheckedResult = Result<bool, &'static str>;
+
+    fn loc_generate_number_range_int() -> CheckedResult{
+        let test_fn: Result<i32, ()> = Ok(super::generate_number_range_int(0, 10));
+        Ok(test_fn.is_ok())
     }
+
+    fn loc_generate_password() -> CheckedResult{
+        let x = super::generate_password(10);
+        let test_fn: Result<String, ()> = Ok(format!("{:?}", x));
+        Ok(test_fn.is_ok())
+    }
+
+    #[test]
+    fn test_generate_number() {   
+        assert_eq!(loc_generate_number_range_int().is_ok(), true)
+    }
+
+    #[test]
+    fn test_generate_password() {   
+        assert_eq!(loc_generate_password().is_ok(), true)
+    }
+
+    
 }
