@@ -23,11 +23,19 @@ As amazing as FFI is, it’s not always the right tool for the job. May be a bet
 - ffi -> "2.3.0"
 - nodemon
 
-## Usage
+## Quick Example
 ```js
-generate_number_range_int(args));
-generate_point_values());
-generate_password(args));
+async function start(){
+  await Promise.all([
+    new Promise(resolve => {
+        setTimeout(() => {
+            resolve(lib.generate_point_values());
+        }, 100);
+    }),
+  ]);
+};
+
+start();
 ```
 
 ## Running
