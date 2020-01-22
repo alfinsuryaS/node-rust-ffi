@@ -1,4 +1,4 @@
-#![allow(unused_imports)]
+
 
 extern crate rand;
 
@@ -8,9 +8,7 @@ use rand::{
     Rng
 };
 
-use std::ffi::CString;
 use rand::distributions::Alphanumeric;
-use libc::c_char;
 
 #[derive(Debug)]
 struct Point {
@@ -60,7 +58,6 @@ pub extern fn generate_password(pass_len: usize) {
 }
 
 
-
 #[cfg(test)]
 mod tests {
     type CheckedResult = Result<bool, &'static str>;
@@ -84,7 +81,5 @@ mod tests {
     #[test]
     fn test_generate_password() {   
         assert_eq!(loc_generate_password().is_ok(), true)
-    }
-
-    
+    }    
 }
