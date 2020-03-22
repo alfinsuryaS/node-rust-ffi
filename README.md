@@ -23,21 +23,6 @@ As amazing as FFI is, it’s not always the right tool for the job. May be a bet
 - ffi -> "2.3.0"
 - nodemon
 
-## Quick Example
-```js
-async function start(){
-  await Promise.all([
-    new Promise(resolve => {
-        setTimeout(() => {
-            resolve(lib.generate_point_values());
-        }, 100);
-    }),
-  ]);
-};
-
-start();
-```
-
 ## Running
 ```bash
 $ npm start
